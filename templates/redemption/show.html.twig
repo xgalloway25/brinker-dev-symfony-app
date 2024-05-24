@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redemption{% endblock %}
+
+{% block body %}
+    <div>
+    <h1>Redemption</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ redemption.id }}</td>
+            </tr>
+            <tr>
+                <th>Guest_id</th>
+                <td>{{ redemption.guestId }}</td>
+            </tr>
+            <tr>
+                <th>Reward_id</th>
+                <td>{{ redemption.rewardId }}</td>
+            </tr>
+            <tr>
+                <th>Redemption_date</th>
+                <td>{{ redemption.redemptionDate ? redemption.redemptionDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Points_redeemed</th>
+                <td>{{ redemption.pointsRedeemed }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ redemption.createdAt ? redemption.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ redemption.updatedAt ? redemption.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

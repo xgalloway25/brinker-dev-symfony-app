@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Redemption{% endblock %}
+
+{% block body %}
+    <h1>Edit Redemption</h1>
+
+    {{ include('redemption/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('redemption/_delete_form.html.twig') }}
+{% endblock %}

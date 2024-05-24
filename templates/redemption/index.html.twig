@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Redemption index{% endblock %}
+
+{% block body %}
+    <div>
+        <div>
+            <h1>Redemption History</h1>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Reward Id</th>
+                <th>Redemption Date</th>
+                <th>Points Redeemed</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for redemption in redemptions %}
+            {% set id = redemption.guestId|number_format()%}
+            {% if app.user.guestId  == id %}
+            <tr>
+                <td><a href="/reward/{{ redemption.rewardId }}">{{ redemption.rewardId }}</a></td>
+                <td>{{ redemption.redemptionDate ? redemption.redemptionDate|date('Y-m-d') : '' }}</td>
+                <td>{{ redemption.pointsRedeemed }}</td>
+                <td>
+                    <a href="{{ path('app_redemption_show', {'id': redemption.id}) }}">Show</a>
+                    <a href="{{ path('app_redemption_edit', {'id': redemption.id}) }}">Edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

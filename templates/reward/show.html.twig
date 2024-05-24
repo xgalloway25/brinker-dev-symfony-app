@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reward{% endblock %}
+
+{% block body %}
+    <h1>Reward</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reward.id }}</td>
+            </tr>
+            <tr>
+                <th>Reward_name</th>
+                <td>{{ reward.rewardName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ reward.description }}</td>
+            </tr>
+            <tr>
+                <th>Points_required</th>
+                <td>{{ reward.pointsRequired }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ reward.createdAt ? reward.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Updated_at</th>
+                <td>{{ reward.updatedAt ? reward.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_reward_edit', {'id': reward.id}) }}">Edit</a>
+
+    {{ include('reward/_delete_form.html.twig') }}
+{% endblock %}

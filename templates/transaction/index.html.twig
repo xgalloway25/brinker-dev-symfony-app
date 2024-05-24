@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transaction index{% endblock %}
+
+{% block body %}
+    <div>
+        <div>
+            <h1>Transaction History</h1>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Transaction Date</th>
+                <th>Amount</th>
+                <th>Points Awarded</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transaction in transactions %}
+            {% set id = transaction.guestId|number_format()%}
+            {% if app.user.guestId  == id %}
+            <tr>
+                <td>{{ transaction.transactionDate ? transaction.transactionDate|date('Y-m-d') : '' }}</td>
+                <td>{{ transaction.amount }}</td>
+                <td>{{ transaction.pointsAwarded }}</td>
+                <td>
+                    <a href="{{ path('app_transaction_show', {'id': transaction.id}) }}">Show</a>
+                    <a href="{{ path('app_transaction_edit', {'id': transaction.id}) }}">Edit</a>
+                </td>
+            </tr>
+            {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

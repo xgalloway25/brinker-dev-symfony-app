@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Guest Points{% endblock %}
+
+{% block body %}
+    <h1>Edit Guest Points</h1>
+
+    {{ include('guest_points/_form.html.twig', {'button_label': 'Update'}) }}
+
+    {{ include('guest_points/_delete_form.html.twig') }}
+{% endblock %}
