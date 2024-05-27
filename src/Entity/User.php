@@ -33,7 +33,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\OneToOne]
+    #[ORM\OneToOne(cascade: ["persist"])]
     #[ORM\JoinColumn(nullable: true)]
     private ?Guest $guest_id = null;
 

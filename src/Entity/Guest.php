@@ -185,6 +185,6 @@ class Guest
     }
 
     public function __toString(): string {
-        return $this->id;
+        return (string) $this->id;
     }
 }
