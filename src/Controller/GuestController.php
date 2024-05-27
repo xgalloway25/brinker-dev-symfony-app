@@ -75,8 +75,15 @@ class GuestController extends AbstractController
     public function delete(Request $request, Guest $guest, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$guest->getId(), $request->getPayload()->get('_token'))) {
+            // Ensure $this->getUser() is not null
+            if ($this->getUser()) {
+                $entityManager->remove($this->getUser());
+            }
             $entityManager->remove($guest);
             $entityManager->flush();
+        }
+        else{
+            return new Response('Invalid CSRF token', Response::HTTP_BAD_REQUEST);
         }
 
         return $this->redirectToRoute('app_guest_index', [], Response::HTTP_SEE_OTHER);
