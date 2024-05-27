@@ -8,21 +8,23 @@
             <h1>My Dashboard</h1>
         </div>
     </div>
-    {% for guest in guests %}
-        {% set id = guest.id|number_format()%}
-        {% if app.user.guestId  == id %}
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ guest.firstName }} {{ guest.lastName }}</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Guest ID: {{ guest.id }}</h6>
-                    <p class="card-text">Points Balance: insert points</p>
-                    <a href="{{ path('app_guest_show', {'id': guest.id}) }}" class="card-link">View Profile</a>
-        {% endif %}
+    {% if app.user %}
+        {% for guest in guests %}
+            {% set id = guest.id|number_format()%}
+            {% if app.user.guestId  == id %}
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ guest.firstName }} {{ guest.lastName }}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">Guest ID: {{ guest.id }}</h6>
+                        <p class="card-text">Points Balance: </p>
+                        <a href="{{ path('app_guest_show', {'id': guest.id}) }}" class="card-link">View Profile</a>
+            {% endif %}
+                    </div>
                 </div>
-            </div>
-        {% else %}
-            <div>
-                <h6>No Records Found</h6>
-            </div>
-    {% endfor %}
+            {% else %}
+                <div>
+                    <h6>No Records Found</h6>
+                </div>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
