@@ -5,30 +5,30 @@
 {% block body %}
     <h1>Reward</h1>
 
-    <table class="table">
+    <table class="table-info">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th scope="row">Id</th>
                 <td>{{ reward.id }}</td>
             </tr>
             <tr>
-                <th>Reward_name</th>
+                <th scope="row">Reward name</th>
                 <td>{{ reward.rewardName }}</td>
             </tr>
             <tr>
-                <th>Description</th>
+                <th scope="row">Description</th>
                 <td>{{ reward.description }}</td>
             </tr>
             <tr>
-                <th>Points_required</th>
+                <th scope="row">Points required</th>
                 <td>{{ reward.pointsRequired }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th scope="row">Created at</th>
                 <td>{{ reward.createdAt ? reward.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Updated_at</th>
+                <th scope="col">Updated at</th>
                 <td>{{ reward.updatedAt ? reward.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>

@@ -3,49 +3,49 @@
 {% block title %}Guest{% endblock %}
 
 {% block body %}
-    <div>
+    <div class="container">
         <h1>My Profile</h1>
 
-        <table class="table">
+        <table class="table-info">
             <tbody>
                 <tr>
-                    <th>Id</th>
+                    <th scope="row">Id</th>
                     <td>{{ guest.id }}</td>
                 </tr>
                 <tr>
-                    <th>First Name</th>
+                    <th scope="row">First Name</th>
                     <td>{{ guest.firstName }}</td>
                 </tr>
                 <tr>
-                    <th>Last Name</th>
+                    <th scope="row">Last Name</th>
                     <td>{{ guest.lastName }}</td>
                 </tr>
                 <tr>
-                    <th>Email</th>
+                    <th scope="row">Email</th>
                     <td>{{ guest.email }}</td>
                 </tr>
                 <tr>
-                    <th>Phone</th>
+                    <th scope="row">Phone</th>
                     <td>{{ guest.phone }}</td>
                 </tr>
                 <tr>
-                    <th>Address</th>
+                    <th scope="row">Address</th>
                     <td>{{ guest.address }}</td>
                 </tr>
                 <tr>
-                    <th>City</th>
+                    <th scope="row">City</th>
                     <td>{{ guest.city }}</td>
                 </tr>
                 <tr>
-                    <th>State</th>
+                    <th scope="row">State</th>
                     <td>{{ guest.state }}</td>
                 </tr>
                 <tr>
-                    <th>Zip</th>
+                    <th scope="row">Zip</th>
                     <td>{{ guest.zip }}</td>
                 </tr>
                 <tr>
-                    <th>Country</th>
+                    <th scope="row">Country</th>
                     <td>{{ guest.country }}</td>
                 </tr>
             </tbody>

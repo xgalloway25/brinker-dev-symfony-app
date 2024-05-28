@@ -8,19 +8,19 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th scope="row">Id</th>
                 <td>{{ guest_point.id }}</td>
             </tr>
             <tr>
-                <th>Total_points</th>
+                <th scope="row">Total points</th>
                 <td>{{ guest_point.totalPoints }}</td>
             </tr>
             <tr>
-                <th>Created_at</th>
+                <th scope="col">Created at</th>
                 <td>{{ guest_point.createdAt ? guest_point.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Updated_at</th>
+                <th scope="col">Updated at</th>
                 <td>{{ guest_point.updatedAt ? guest_point.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>

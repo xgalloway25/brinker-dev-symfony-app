@@ -73,14 +73,16 @@
                     </nav>
                 </header>
             {% endblock %}
-
+            <div class="container bg-primary-subtle">
             {% block body %}{% endblock %}
-
+            </div>
             {% block footer %}
-                <footer>
+                <footer class="footer p-5">
+                    <div class="container">
                     <p>
                         My Brinker Interview. Xavier Galloway
                     </p>
+                    </div>
                 </footer>
             {% endblock %}
     </body>
